@@ -2,10 +2,9 @@ var mongoose =require("./connect");
 var ZONESCHEMA ={
     city: String,
     namezome: String,
-    zoom: Number,
-    lat: Number,
-    lng: Number,  
-    coordenadas: String,
+    superficie_total: String, 
+    latitud: String,
+    longitud: String,
     registerdate: Date  
 };
 const  ZONE = mongoose.model("zone",ZONESCHEMA);
