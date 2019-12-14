@@ -1,5 +1,7 @@
 var mongoose =require("./connect");
-var HOMESCHEMA ={
+var ObjectId=mongoose.Schema.Types.ObjectId;
+var Schema= mongoose.Schema;
+var HOMESCHEMA = new Schema({
     city: String,
     region: String,
     zone: String,
@@ -13,9 +15,10 @@ var HOMESCHEMA ={
     photo: String,
     servicios: String,
     garaje: String,
-    latitud_longitud: String,
+    latitud: String,
+    longitud: String,
     registerdate: Date,
     año_construccion: String
-};
+});
 const HOME = mongoose.model("home",HOMESCHEMA);
 module.exports = HOME;

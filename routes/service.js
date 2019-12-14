@@ -83,13 +83,13 @@ router.patch("/user",verytoken,(req, res, next) => {
         var passwordcypher =crypto.createHash("md5").update(params.password).digest("hex");
         USER.find({email: params.email, password: passwordcypher}).exec((err,docs)=> {
             if(err){
-                res.status(300).json({
+                res.status(600).json({
                     "msn": "Problema con la base de datos"
                 });
                 return;
             }
             if (docs.length == 0){
-                res.status(300).json({
+                res.status(700).json({
                     "msn": "Usuario y Password Incorrecto "
                 });
                 return;

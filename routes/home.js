@@ -32,7 +32,22 @@ router.get("/homes",(req, res, next) => {
      if(params.mim != null &&params.max != null){
         filter["listPrice"]={"$gt": Number(params.min),"$lt": Number(params.max)}
      }
-     var cad="property_descryption,directions, latitud, longitud";
+     if(params.id){
+        filter["_id"]= params.id; 
+    }
+     HOME.find(filter).skip(skip).limit(limit).exec((err, docs) => {    
+        if(err){
+            res.status(200).json({
+                "msn": "Error en la base de datos"
+            });
+            return;
+        }
+        res.status(200).json(docs);
+    });
+});
+
+
+    /* var cad="property_descryption,directions, latitud, longitud";
      if(params.detail != null){
         if(params.detail =="true"){
             cad="";
