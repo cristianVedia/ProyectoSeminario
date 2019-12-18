@@ -4,6 +4,7 @@ var router = express.Router();
 
 router.post("/neighborhood",(req,res,next) => {
 var params = req.body;
+console.log("error");
 params["registerdate"] =new Date();
 var zone =new ZONE(params);
 zone.save().then(() => {
